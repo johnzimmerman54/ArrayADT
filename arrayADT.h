@@ -88,7 +88,7 @@ public:
 			{ return m_length; }
 
 	int		size() const
-			{ return numElements() * sizeof(ELEMENT_TYPE); }
+			{ return getLength() * sizeof(ELEMENT_TYPE); }
 
 
 private:

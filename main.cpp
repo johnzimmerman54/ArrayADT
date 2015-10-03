@@ -26,8 +26,10 @@ int  main()
 
 	try
 	{
-		int elements = 25;
-		int start = 0;
+
+
+		int elements = -1;
+		int start = -10;
 		int end = elements + start;
 
 		Array<int> data(elements, start);
@@ -42,17 +44,18 @@ int  main()
 		
 		cout << endl << endl;
 
-		//
-		//Array<char> data2(15);
-		//
-		//char character = 90;
-		//for (int i = 0; i < 15; i++)
-		//{
-		//	data2[i] = character;
-		//	character++;
-		//}
-		//
-		//cout << data2[0] << ',' << data2[1] << ',' << data2[2] << ',' << data2[3] << ',' << data2[14] << endl << endl;
+		
+		Array<char> data2(26, -99);
+		
+		char character = 97;
+		for (int i = 0; i < 26; i++)
+		{
+			data2[i] = character;
+			cout << data2[i] << ' ';
+			character++;
+		}
+		
+		cout << endl << endl;
 		 
 
 	}

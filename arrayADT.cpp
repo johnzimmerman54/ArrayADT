@@ -28,13 +28,13 @@ Array<ELEMENT_TYPE>::Array(int length, int start_index) :
 		m_start_index( start_index )
 {
 
-	if (length < start_index)
+	if (length < 1)
 	{
 		throw ERR_BAD_BOUNDS;
 	}
 
 
-	Array::m_array = new ELEMENT_TYPE[getLength()];
+	Array::m_array = new ELEMENT_TYPE[m_length];
 
 
 	// 
@@ -55,7 +55,7 @@ Array<ELEMENT_TYPE>::Array(int length, int start_index) :
 template <class ELEMENT_TYPE>
 void Array<ELEMENT_TYPE>::checkBounds(int index) const
 {
-	if (index < getStartIndex() || index > upperBound())
+	if (index < m_start_index || index > m_length + m_start_index)
 	{
 
 		throw ERR_OUT_OF_BOUNDS;
@@ -124,7 +124,7 @@ ELEMENT_TYPE &Array<ELEMENT_TYPE>::operator[](int index)
 
 	checkBounds(index);
 
-	return m_array[index];
+	return m_array[index - m_start_index];
 
 }
 
@@ -137,6 +137,6 @@ const ELEMENT_TYPE &Array<ELEMENT_TYPE>::operator[](int index) const
 	
 	checkBounds(index);
 
-	return m_array[index];
+	return m_array[index - m_start_index];
 
 }
