@@ -85,7 +85,7 @@ public:
 			{ return m_start_index + m_length; }
 
 	int		getLength() const
-			{ return m_length - 1; }
+			{ return m_length; }
 
 	int		size() const
 			{ return numElements() * sizeof(ELEMENT_TYPE); }
