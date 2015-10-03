@@ -46,7 +46,7 @@ public:
 	//
 	// Copy constructor
 	//
-	//Array ( const Array &rhs );
+	Array ( const Array &rhs );
 	
 
 	//

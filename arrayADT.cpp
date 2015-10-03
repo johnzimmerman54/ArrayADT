@@ -52,31 +52,31 @@ Array<ELEMENT_TYPE>::Array(int length, int start_index) :
 //
 // Copy Constructor
 //
-//template <class ELEMENT_TYPE>
-//Array<ELEMENT_TYPE>::Array(const Array &rhs) :
-//		m_length( rhs.m_length ),
-//		m_start_index( rhs.m_start_index ),
-//		m_array(new ELEMENT_TYPE[m_length])
-//{
-//	// 
-//	// Memory allocation check - exit if fails
-//	//
-//	if (!m_array)
-//	{
-//		cout << "Error allocating memory" << endl;
-//		EXIT_FAILURE;
-//	}
-//
-//	//
-//	//
-//	//
-//	for (int idx = 0; idx < rhs.m_length; ++idx)
-//	{
-//		m_array[idx] = rhs.m_array[idx];
-//	}
-//
-//
-//}
+template <class ELEMENT_TYPE>
+Array<ELEMENT_TYPE>::Array(const Array &rhs) :
+		m_length( rhs.m_length ),
+		m_start_index( rhs.m_start_index ),
+		m_array(new ELEMENT_TYPE[m_length])
+{
+	// 
+	// Memory allocation check - exit if fails
+	//
+	if (!m_array)
+	{
+		cout << "Error allocating memory" << endl;
+		EXIT_FAILURE;
+	}
+
+	//
+	//
+	//
+	for (int idx = 0; idx < rhs.m_length; ++idx)
+	{
+		m_array[idx] = rhs.m_array[idx];
+	}
+
+
+}
 
 
 //

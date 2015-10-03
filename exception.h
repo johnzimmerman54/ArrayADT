@@ -23,9 +23,9 @@ class Exception
 	Exception ( char *msg );
 	
 	//
-	// Regular constructor
+	// Copy constructor
 	//
-	Exception ( char *msg );
+	//Exception ( char *msg );
 
 	//
 	// Destructor
