@@ -24,12 +24,18 @@
     <ClCompile Include="refCounter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="exception.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arrayADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="refCounter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="exception.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

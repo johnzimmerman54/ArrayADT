@@ -28,34 +28,64 @@ int  main()
 	{
 
 
-		int elements = -1;
-		int start = -10;
+		int elements = 26;
+		int start = -99;
 		int end = elements + start;
 
-		Array<int> data(elements, start);
+		Array<char> data(elements, start);
 		
-		int number = 1;
+		//int number = 1;
+		char c = 97;
+
 		for (int i = start; i < end; ++i)
 		{
-			data[i] = number;
+			data[i] = c;
 			cout << data[i] << ' ';
-			number++;
+			c++;
 		}
 		
 		cout << endl << endl;
 
+		Array<char> data2(data);
+
+
+		data2.setStartIndex(3);
+		data2.setLength(16);
+
 		
-		Array<char> data2(26, -99);
-		
-		char character = 97;
-		for (int i = 0; i < 26; i++)
+
+		for (int i = 3; i < 16; ++i)
 		{
-			data2[i] = character;
+			data2[i] = c;
 			cout << data2[i] << ' ';
-			character++;
+			c++;
 		}
 		
 		cout << endl << endl;
+
+		c = 97;
+
+		for (int i = start; i < end; ++i)
+		{
+			data[i] = c;
+			cout << data[i] << ' ';
+			c++;
+		}
+		
+		cout << endl << endl;
+
+		//
+		//Array<char> data2(26, -99);
+		//
+		//char character = 97;
+		//for (int i = -99; i < 26; i++)
+		//{
+		//	data2[i] = character;
+		//	cout << data2[i] << ' ';
+		//	character++;
+		//}
+		//
+		//cout << endl << endl;
 		 
 
 	}

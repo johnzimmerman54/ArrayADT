@@ -43,6 +43,11 @@ public:
 	//
 	Array ( int length, int start_index = 0 );
 	
+	//
+	// Copy constructor
+	//
+	//Array ( const Array &rhs );
+	
 
 	//
 	// Destructor
@@ -73,16 +78,13 @@ public:
 			{ return m_start_index = start_index; }
 
 	int setLength(int length)
-			{ return m_length = length; }
+			{ return m_length = length - m_start_index - 1; }
 
 	//
 	// Inspector member functions
 	//
 	int		getStartIndex() const 
 			{ return m_start_index; }
-
-	int		upperBound() const 
-			{ return m_start_index + m_length; }
 
 	int		getLength() const
 			{ return m_length; }
