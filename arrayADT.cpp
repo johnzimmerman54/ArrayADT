@@ -16,6 +16,7 @@
 #include  <iostream>
 
 #include "arrayADT.h"
+#include "exception.h"
 
 using  namespace  std;
 
@@ -30,7 +31,8 @@ Array<ELEMENT_TYPE>::Array(int length, int start_index) :
 
 	if (length < 1)
 	{
-		throw ERR_BAD_BOUNDS;
+		
+		throw Exception((char *) "Must have at least one element");
 	}
 
 
@@ -42,7 +44,7 @@ Array<ELEMENT_TYPE>::Array(int length, int start_index) :
 	//
 	if (!m_array)
 	{
-		throw ERR_MEM_ALLOC;
+		throw Exception((char *) "Memory Allocation Error");
 	}
 	
 
@@ -56,7 +58,7 @@ template <class ELEMENT_TYPE>
 Array<ELEMENT_TYPE>::Array(const Array &rhs) :
 		m_length( rhs.m_length ),
 		m_start_index( rhs.m_start_index ),
-		m_array(new ELEMENT_TYPE[m_length])
+		m_array(new ELEMENT_TYPE[getLength()])
 {
 	// 
 	// Memory allocation check - exit if fails
@@ -68,15 +70,17 @@ Array<ELEMENT_TYPE>::Array(const Array &rhs) :
 	}
 
 	//
+	// Populate new array
 	//
-	//
-	for (int idx = 0; idx < rhs.m_length; ++idx)
+	for (int idx = 0; idx < rhs.getLength(); ++idx)
 	{
 		m_array[idx] = rhs.m_array[idx];
 	}
 
 
 }
+
+
 
 
 //
@@ -88,7 +92,7 @@ void Array<ELEMENT_TYPE>::checkBounds(int index) const
 	if (index < m_start_index || index > m_length + m_start_index)
 	{
 
-		throw ERR_OUT_OF_BOUNDS;
+		throw Exception((char *) "Out of Bounds");
 
 	}
 }

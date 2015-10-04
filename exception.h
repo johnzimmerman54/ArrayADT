@@ -8,13 +8,20 @@
 *
 * ---
 *
-* Exception class and member variables 
+* Exception class declaration and member variables 
 *
 */
 
+#ifndef  exception_H
+#define  exception_H
+
+#include  <iostream>
+#include  <cstring>
 
 class Exception
 {
+
+	friend std::ostream& operator <<(std::ostream& stream, const Exception& exception);
 
 	public:
 	//
@@ -25,14 +32,31 @@ class Exception
 	//
 	// Copy constructor
 	//
-	//Exception ( char *msg );
+	Exception ( const Exception &rhs );
 
 	//
 	// Destructor
 	//
 	~Exception();
 
+	
+	//
+	// Assignment operator
+	//
+	Exception &operator=(const char * &rhs);
 
+	char * getMessage() const;
+
+	void setMessage(char * msg);
+
+
+private:
+
+	char * m_msg;
 
 };
 
+
+
+
+#endif

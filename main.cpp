@@ -7,12 +7,11 @@
 //
 // File: main.cpp
 //
-// Test program for the Array and SafeArray classes.
+// Test driver
 //
 
-
-#include  <math.h>
 #include  <iostream>
+
 #include  "arrayADT.cpp"
 
 using  namespace  std;
@@ -26,35 +25,78 @@ int  main()
 
 	try
 	{
-
-
-		int elements = 26;
-		int start = -99;
+		
+		int elements = 20;
+		int start = -2;
 		int end = elements + start;
 
-		Array<char> data(elements, start);
+		//
+		// Array constructor
+		//
+		Array<int> data(elements, start);
 		
-		//int number = 1;
-		char c = 97;
+		//
+		// index operator overload
+		//
+		int n = 1;
+
+		cout << "data" << endl;
 
 		for (int i = start; i < end; ++i)
 		{
-			data[i] = c;
+			data[i] = n;
 			cout << data[i] << ' ';
-			c++;
+			n++;
 		}
+		cout << endl << endl;
+
+		//
+		// Array copy
+		//
+		Array<int> data2(data);
+
+		//
+		// assignment operator overload
+		//
+		Array<int> data3(data2);
+		data3 = data;
+
+		//
+		// get start index
+		//
+		cout << "getStartIndex()" << endl;
+		cout << data.getStartIndex() << endl;
+
+		//
+		// set start index
+		//
+		cout << "setStartIndex to 0" << endl;
+		data2.setStartIndex(0);
+		cout << data2.getStartIndex() << endl;
+
+		//
+		// get array length
+		//
+		cout << "getLength()" << endl;
+		cout << data2.getLength() << endl;
+
+		//
+		// set array length
+		//
+		cout << "setLength to 10" << endl;
+		data3.setLength(10);
+		cout << data3.getLength() << endl;
+
+
+	
+
 		
 		cout << endl << endl;
 
-		Array<char> data2(data);
-
-
-		data2.setStartIndex(3);
-		data2.setLength(16);
-
+		cout << "data2" << endl;
 		
-
-		for (int i = 3; i < 16; ++i)
+		int c = -20;
+		for (int i = 0; i < data2.getLength(); ++i)
 		{
 			data2[i] = c;
 			cout << data2[i] << ' ';
@@ -63,44 +105,23 @@ int  main()
 		
 		cout << endl << endl;
 
-		c = 97;
+		cout << "data3" << endl;
 
-		for (int i = start; i < end; ++i)
+		for (int i = start; i < data3.getLength(); ++i)
 		{
-			data[i] = c;
-			cout << data[i] << ' ';
-			c++;
+			cout << data3[i] << ' ';
 		}
 		
 		cout << endl << endl;
-
-		//
-		//Array<char> data2(26, -99);
-		//
-		//char character = 97;
-		//for (int i = -99; i < 26; i++)
-		//{
-		//	data2[i] = character;
-		//	cout << data2[i] << ' ';
-		//	character++;
-		//}
-		//
-		//cout << endl << endl;
-		 
+		
 
 	}
-	catch (int errCode)
+
+
+	catch (const Exception &error)
 	{
 
-		switch (errCode)
-		{
-		case ERR_BAD_BOUNDS		: cout << "ERR_BAD_BOUNDS" << endl; break;
-		case ERR_OUT_OF_BOUNDS	: cout << "ERR_OUT_OF_BOUNDS" << endl; break;
-		case ERR_MEM_ALLOC		: cout << "ERR_MEM_ALLOC" << endl; break;
-		default					: cout << "Undefined Error" << endl; break;
-
-
-		}
+		cout << endl << endl << error.getMessage() << endl << endl;
 
 	}
 

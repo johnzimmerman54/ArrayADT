@@ -8,16 +8,12 @@
 *
 * ---
 *
-* Array class and member variables 
+* Array class declarations and member variables 
 *
 */
 
 #ifndef  arrayADT_H
 #define  arrayADT_H
-
-#define  ERR_BAD_BOUNDS     1
-#define  ERR_MEM_ALLOC      2
-#define  ERR_OUT_OF_BOUNDS  3
 
 #include "refCounter.h"
 
@@ -25,14 +21,6 @@
 //
 // Array Class
 //
-/*
-* Constraints for the TYPE datatype for the Array<> template class:
-*
-*   datatype must supply a default constructor
-*   datatype must support assignment
-*   datatype must be copyable
-*
-*/
 template <class ELEMENT_TYPE>
 class Array
 {
@@ -74,11 +62,11 @@ public:
 	//
 	// Set Index and Set Length member functions
 	//
-	int setStartIndex(int start_index)
-			{ return m_start_index = start_index; }
+	void	setStartIndex(int start_index)
+			{ m_start_index = start_index; }
 
-	int setLength(int length)
-			{ return m_length = length - m_start_index - 1; }
+	void	setLength(int length)
+			{ m_length = length; }
 
 	//
 	// Inspector member functions
@@ -87,10 +75,7 @@ public:
 			{ return m_start_index; }
 
 	int		getLength() const
-			{ return m_length; }
-
-	int		size() const
-			{ return getLength() * sizeof(ELEMENT_TYPE); }
+			{ return m_length - 1; }
 
 
 private:
