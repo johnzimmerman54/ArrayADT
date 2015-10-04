@@ -89,10 +89,16 @@ Array<ELEMENT_TYPE>::Array(const Array &rhs) :
 template <class ELEMENT_TYPE>
 void Array<ELEMENT_TYPE>::checkBounds(int index) const
 {
-	if (index < m_start_index || index > m_length + m_start_index)
+	if (index < m_start_index)
 	{
 
-		throw Exception((char *) "Out of Bounds");
+		throw Exception((char *) "Index Smaller than Lower Bounds");
+
+	}
+	if (index > m_length + m_start_index)
+	{
+
+		throw Exception((char *) "Index Larger than Upper Bounds");
 
 	}
 }

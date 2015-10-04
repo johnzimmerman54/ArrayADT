@@ -47,6 +47,7 @@ public:
 	// Assignment operator
 	//
 	ELEMENT_TYPE &operator=(const ELEMENT_TYPE &rhs);
+
 	void zeroreference();
 
 	//
